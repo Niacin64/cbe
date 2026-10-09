@@ -40,7 +40,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-HF_REPO = os.environ.get("HF_REPO", "<account>/cbe-indexes")
+HF_REPO = os.environ.get("HF_REPO", "Niacin64/cbe-indexes")
 HERE = Path(__file__).resolve().parent
 PRETRAINED = HERE.parent.parent / "pretrained"
 CHUNK = 1 << 22

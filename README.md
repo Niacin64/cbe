@@ -28,7 +28,7 @@ costs one more calibration run and nothing at deployment time.
 ## Install
 
 ```bash
-git clone https://github.com/<account>/cbe && cd cbe
+git clone https://github.com/Niacin64/cbe && cd cbe
 pip install -e .                  # core: numpy, scipy, ase
 pip install -e ".[index]"         # + faiss-cpu, for indexes larger than RAM
 pip install -e ".[latent]"        # + mace-torch, for the default model-latent descriptor

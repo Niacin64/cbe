@@ -22,8 +22,8 @@ extract = ["ijson"]                 # streaming the MPtrj JSON corpus
 all = ["dscribe", "faiss-cpu", "mace-torch", "ijson", "matplotlib", "pandas", "pyarrow"]
 
 [project.urls]
-Homepage = "https://github.com/<account>/cbe"
-Issues = "https://github.com/<account>/cbe/issues"
+Homepage = "https://github.com/Niacin64/cbe"
+Issues = "https://github.com/Niacin64/cbe/issues"
 
 [tool.setuptools.packages.find]
 include = ["cbe*"]
