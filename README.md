@@ -218,4 +218,4 @@ MIT — see `LICENSE`.
 If you use CBE, please cite the paper:
 
 > *Coverage-based extrapolation warnings for universal machine-learned interatomic
-> potentials*, J. Chem. Theory Comput. (submitted).
+> potentials*
