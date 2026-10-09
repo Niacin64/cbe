@@ -1,0 +1,47 @@
+{
+  "name": "omat24",
+  "title": "OMat24 coverage index",
+  "corpus": "OMat24",
+  "descriptor": "mace-latent (rotational-invariant node features of MACE-MP-0 small)",
+  "pca_dim": 16,
+  "distance": "euclidean",
+  "index_type": "flat_l2_exact",
+  "layout": "sharded",
+  "files": [
+    "shard_000.faiss",
+    "shard_001.faiss",
+    "shard_002.faiss",
+    "shard_003.faiss",
+    "shard_004.faiss",
+    "pca.npz",
+    "meta.json"
+  ],
+  "note": "86,066,902 environments sampled (global stride 20) from the 100,824,585 training structures in the eight OMat24 sub-datasets.",
+  "generated": "2026-09-23",
+  "n_environments": 86066902,
+  "n_structures": 4475272,
+  "bandwidth_silverman": 1.1718045473098755,
+  "bandwidth_used": 0.2184,
+  "source_meta": {
+    "dim": 16,
+    "n_atoms": 86066902,
+    "n_structures": 4475272,
+    "descriptor": "mace-latent",
+    "pca_dim": 16,
+    "mode": "omat24",
+    "n_chunks": 44,
+    "raw_features": "features_chunk_0000..0043.npy",
+    "append_note": "",
+    "shards": [
+      "shard_000.faiss",
+      "shard_001.faiss",
+      "shard_002.faiss",
+      "shard_003.faiss",
+      "shard_004.faiss"
+    ],
+    "shard_size": 20000000,
+    "n_atoms_indexed": 86066902,
+    "bandwidth_silverman": 1.1718045473098755,
+    "bandwidth_used": 0.2184
+  }
+}

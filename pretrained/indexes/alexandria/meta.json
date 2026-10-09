@@ -1,0 +1,43 @@
+{
+  "name": "alexandria",
+  "title": "Alexandria coverage index",
+  "corpus": "Alexandria",
+  "descriptor": "mace-latent (rotational-invariant node features of MACE-MP-0 small)",
+  "pca_dim": 16,
+  "distance": "euclidean",
+  "index_type": "flat_l2_exact",
+  "layout": "sharded",
+  "files": [
+    "shard_000.faiss",
+    "shard_001.faiss",
+    "shard_002.faiss",
+    "shard_003.faiss",
+    "pca.npz",
+    "meta.json"
+  ],
+  "note": "158,597,532 environments sampled (file-stride 10) from the Alexandria geometry-optimisation paths, 2D and 3D.",
+  "generated": "2026-09-23",
+  "n_environments": 158597532,
+  "n_structures": 11096125,
+  "bandwidth_used": 0.2184,
+  "source_meta": {
+    "dim": 16,
+    "n_atoms": 158597532,
+    "n_structures": 11096125,
+    "descriptor": "mace-latent",
+    "pca_dim": 16,
+    "mode": "alexandria",
+    "n_chunks": 80,
+    "raw_features": "features_chunk_0000..0079.npy",
+    "append_note": "append 模式下 n_atoms/n_structures 含续跑累计",
+    "bandwidth": 0.07463758438825607,
+    "shards": [
+      "shard_000.faiss",
+      "shard_001.faiss",
+      "shard_002.faiss",
+      "shard_003.faiss"
+    ],
+    "shard_size": 40000000,
+    "n_atoms_indexed": 158597532
+  }
+}

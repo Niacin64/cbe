@@ -1,0 +1,19 @@
+model_key,model_name,training_corpus,theta_f,flagged_fraction,mae_above_meV_per_A,mae_below_meV_per_A,within_tolerance_fraction
+chgnet,CHGNet,MPtrj,0.3213,0.696,219.4,1530.0,0.407
+grace-1l-oam,GRACE-1L-OAM,MPtrj + OMat24 + sAlex,0.419,0.606,128.9,536.5,0.734
+grace-2l-mptrj,GRACE-2L-MPtrj,MPtrj,0.2248,0.651,138.5,9970.8,0.471
+grace-2l-oam,GRACE-2L-OAM,MPtrj + OMat24 + sAlex,0.2449,0.468,137.5,530.8,0.821
+grace-fs-oam,GRACE-FS-OAM,MPtrj + OMat24 + sAlex,0.7187,0.731,189.2,1025.1,0.446
+mace-mp-0-large,MACE-MP-0 large,MPtrj,0.3368,0.702,194.1,1807.7,0.41
+mace-mp-0-medium,MACE-MP-0 medium,MPtrj,0.3446,0.702,177.6,1753.9,0.446
+mace-mp-0-small,MACE-MP-0 small,MPtrj,0.3253,0.699,179.5,1680.3,0.42
+mace-mp-0b2-medium,MACE-MP-0b2 medium,MPtrj,0.4195,0.737,141.3,1191.2,0.474
+mace-mp-0b3-medium,MACE-MP-0b3 medium,MPtrj,0.2208,0.644,164.7,1330.9,0.458
+mace-mpa-0,MACE-MPA-0,MPtrj + sAlex,0.2204,0.583,134.2,727.5,0.635
+mattersim-v1,MatterSim-v1,MPtrj + Alex + OMat24,0.3968,0.577,171.4,459.7,0.785
+orb-v2,ORB v2 MPA,MPtrj + Alex,0.2216,0.583,114.6,586.0,0.708
+orb-v2-mptrj,ORB v2 MPtrj,MPtrj,0.0894,0.551,153.9,769.9,0.59
+orb-v3,ORB v3,MPtrj + Alex + OMat24,0.114,0.394,151.4,469.5,0.862
+sevennet-0,SevenNet-0,MPtrj,0.3397,0.702,144.0,1768.8,0.455
+sevennet-l3i5,SevenNet-l3i5,MPtrj,0.2248,0.651,152.4,1490.2,0.487
+sevennet-mf-ompa,SevenNet-MF-ompa,MPtrj + OMat24 + sAlex,0.0849,0.365,149.4,421.6,0.878

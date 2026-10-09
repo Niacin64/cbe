@@ -1,0 +1,82 @@
+{
+  "note": "sha256 of every artefact in the distributed indexes. Fill the binary rows after the Hugging Face upload (see README).",
+  "indexes": {
+    "mptrj": {
+      "base": "CBE/examples/mptrj_index_all",
+      "pca": {
+        "file": "pca.npz",
+        "sha256": "4dafc820199741cc56279e9b52a20250950106f3d6cd35295b06ec92ac1c52d8"
+      },
+      "binaries": [
+        {
+          "file": "index.faiss",
+          "bytes": 3154922285,
+          "sha256": "add6b400e601680fc25b82d35972af4aeec6eebd9aaf457530cef7b231164b12"
+        }
+      ]
+    },
+    "alexandria": {
+      "base": "alexandria_index_full",
+      "pca": {
+        "file": "pca.npz",
+        "sha256": "c344cad2e1a679d71bf247b8074c4187690324feb11f62fa282f54c27c0d6368"
+      },
+      "binaries": [
+        {
+          "file": "shard_000.faiss",
+          "bytes": 2560000045,
+          "sha256": "fb5a0132645c11cec2a875a792f93b58c09df0cae1b716f58921b1c977f97697"
+        },
+        {
+          "file": "shard_001.faiss",
+          "bytes": 2560000045,
+          "sha256": "014ed7180e101444d70e23660d4397f04566bdcb5c76ed527b9d5d4d7e1a41d7"
+        },
+        {
+          "file": "shard_002.faiss",
+          "bytes": 2560000045,
+          "sha256": "9ee9cb2b695e4b1268e145a561dc36853a525d740dfba5891e4ab913649a50ec"
+        },
+        {
+          "file": "shard_003.faiss",
+          "bytes": 2470242093,
+          "sha256": "b65dc60008e4ce9dd61cb4d672515f92100f98b24ae3555bf96fb6973bf396d1"
+        }
+      ]
+    },
+    "omat24": {
+      "base": "omat24_index",
+      "pca": {
+        "file": "pca.npz",
+        "sha256": "16a2e087cddb5286d721f8ba9089883a824b3908f1f235c731922163472a7fd1"
+      },
+      "binaries": [
+        {
+          "file": "shard_000.faiss",
+          "bytes": 1280000045,
+          "sha256": "4857d171d397f4df040dcc7696e629be616caddd4b1218821455b978ac4f506e"
+        },
+        {
+          "file": "shard_001.faiss",
+          "bytes": 1280000045,
+          "sha256": "1891e39d8635cb247ef4d0f19b07177a739f4b70e50cd90b7a1dc3c0cab714e4"
+        },
+        {
+          "file": "shard_002.faiss",
+          "bytes": 1280000045,
+          "sha256": "0ef38b984cc275b68627c319c8da77d0dd11b7035ebbd383760913fe68482d77"
+        },
+        {
+          "file": "shard_003.faiss",
+          "bytes": 1280000045,
+          "sha256": "14595da6aaacac7b30e3ffa4921fabdcfed1a77489ca51a352f00e4f5355f941"
+        },
+        {
+          "file": "shard_004.faiss",
+          "bytes": 388281773,
+          "sha256": "fd64556311f3b49149b33dc6c89220baba4a829729a3c09136bd2da4a251f8e8"
+        }
+      ]
+    }
+  }
+}

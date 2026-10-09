@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "CBE: Coverage-Based Extrapolation for machine-learned interatomic potentials"
+abstract: >-
+  Coverage index and conformal calibration middleware that turns the training corpus of a
+  machine-learned interatomic potential into a per-structure warning about whether a
+  prediction is an interpolation or an extrapolation. One index per corpus serves every
+  model trained on it; screening costs a single nearest-neighbour query and no reference
+  calculation.
+type: software
+license: MIT
+version: 0.6.0
+date-released: "2026-10-08"
+repository-code: "https://github.com/<account>/cbe"
+identifiers:
+  - type: doi
+    value: "<Zenodo DOI>"
+    description: "Archived release"
+keywords:
+  - machine-learned interatomic potentials
+  - uncertainty quantification
+  - extrapolation detection
+  - conformal prediction
+  - coverage
+  - materials screening
+authors:
+  - family-names: "<Family>"
+    given-names: "<Given>"
+    affiliation: "<Institution>"
+preferred-citation:
+  type: article
+  title: "Coverage-based extrapolation warnings for universal machine-learned interatomic potentials"
+  journal: "Journal of Chemical Theory and Computation"
+  year: 2026
+  authors:
+    - family-names: "<Family>"
+      given-names: "<Given>"
+  notes: "Submitted; update volume/pages/DOI on acceptance."

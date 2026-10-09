@@ -1,0 +1,33 @@
+{
+  "name": "mptrj",
+  "title": "MPtrj coverage index",
+  "corpus": "MPtrj",
+  "descriptor": "mace-latent (rotational-invariant node features of MACE-MP-0 small)",
+  "pca_dim": 16,
+  "distance": "euclidean",
+  "index_type": "flat_l2_exact",
+  "layout": "single",
+  "files": [
+    "index.faiss",
+    "pca.npz",
+    "meta.json"
+  ],
+  "note": "49,295,660 atomic environments from about 1.4M relaxed MPtrj structures.",
+  "generated": "2026-09-23",
+  "n_environments": 49295660,
+  "bandwidth_silverman": 0.2184,
+  "bandwidth_used": 0.2184,
+  "source_meta": {
+    "dim": 16,
+    "n_atoms": 49295660,
+    "descriptor": "mace-latent",
+    "pca_dim": 16,
+    "mode": "all",
+    "bandwidth": 0.11175186187028885,
+    "bandwidth_mean": 0.09048504382371902,
+    "bandwidth_k": 100,
+    "bandwidth_mode": "std",
+    "index_type": "flat_l2_exact",
+    "bandwidth_silverman": 0.2184
+  }
+}

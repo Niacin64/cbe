@@ -1,0 +1,27 @@
+# regenerable artefacts: indexes, caches, checkpoints
+*.faiss
+*.npy
+*.npz
+*.pkl
+*.xyz
+*.extxyz
+*.model
+*.pth
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+.vscode/
+.idea/
+.DS_Store
+
+# keep metadata, thresholds, small tables and the PCA matrices
+# (the PCA of each index is essential: without it a downloaded index cannot be used)
+!pretrained/**/*.json
+!pretrained/**/*.csv
+!pretrained/**/*.md
+!pretrained/**/*.npz

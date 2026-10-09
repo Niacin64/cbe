@@ -1,0 +1,354 @@
+{
+  "protocol": {
+    "summary": "coverage against the model's own training corpus (union when it trained on several), one threshold per model calibrated once from force errors",
+    "calibration_set": "300 MPtrj structures + 240 Alexandria structures with PBE forces, plus half of the perturbed and random cells (311 of 623)",
+    "evaluation_set": "the held-out other half (312 structures)",
+    "descriptor": "rotational-invariant node features of MACE-MP-0 small (256) -> PCA 16",
+    "coverage": "k-NN kernel density, k=30, Silverman bandwidth h=0.2184 shared by all indexes",
+    "calibration": "split conformal, normalized nonconformity, alpha=0.1, force tolerance eps_f=0.5 eV/A",
+    "why_not_corpus_only": "a corpus sample alone leaves every structure inside the tolerance, so the conformal band never reaches eps_f and theta collapses to zero; the calibration set must span the difficulty range",
+    "for_other_quantities": "the same theta_f is used for every quantity (voltages, formation energies, ...); there is no separate calibration"
+  },
+  "generated": "2026-09-23",
+  "n_models": 18,
+  "models": [
+    {
+      "model_key": "chgnet",
+      "model_name": "CHGNet",
+      "training_corpus": "MPtrj",
+      "indexes": [
+        "mptrj"
+      ],
+      "theta_f": 0.3213,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.696,
+        "mae_above_theta_meV_per_A": 219.4,
+        "mae_below_theta_meV_per_A": 1530.0,
+        "within_tolerance_fraction": 0.407
+      }
+    },
+    {
+      "model_key": "grace-1l-oam",
+      "model_name": "GRACE-1L-OAM",
+      "training_corpus": "MPtrj + OMat24 + sAlex",
+      "indexes": [
+        "mptrj",
+        "alexandria",
+        "omat24"
+      ],
+      "theta_f": 0.419,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.606,
+        "mae_above_theta_meV_per_A": 128.9,
+        "mae_below_theta_meV_per_A": 536.5,
+        "within_tolerance_fraction": 0.734
+      }
+    },
+    {
+      "model_key": "grace-2l-mptrj",
+      "model_name": "GRACE-2L-MPtrj",
+      "training_corpus": "MPtrj",
+      "indexes": [
+        "mptrj"
+      ],
+      "theta_f": 0.2248,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.651,
+        "mae_above_theta_meV_per_A": 138.5,
+        "mae_below_theta_meV_per_A": 9970.8,
+        "within_tolerance_fraction": 0.471
+      }
+    },
+    {
+      "model_key": "grace-2l-oam",
+      "model_name": "GRACE-2L-OAM",
+      "training_corpus": "MPtrj + OMat24 + sAlex",
+      "indexes": [
+        "mptrj",
+        "alexandria",
+        "omat24"
+      ],
+      "theta_f": 0.2449,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.468,
+        "mae_above_theta_meV_per_A": 137.5,
+        "mae_below_theta_meV_per_A": 530.8,
+        "within_tolerance_fraction": 0.821
+      }
+    },
+    {
+      "model_key": "grace-fs-oam",
+      "model_name": "GRACE-FS-OAM",
+      "training_corpus": "MPtrj + OMat24 + sAlex",
+      "indexes": [
+        "mptrj",
+        "alexandria",
+        "omat24"
+      ],
+      "theta_f": 0.7187,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.731,
+        "mae_above_theta_meV_per_A": 189.2,
+        "mae_below_theta_meV_per_A": 1025.1,
+        "within_tolerance_fraction": 0.446
+      }
+    },
+    {
+      "model_key": "mace-mp-0-large",
+      "model_name": "MACE-MP-0 large",
+      "training_corpus": "MPtrj",
+      "indexes": [
+        "mptrj"
+      ],
+      "theta_f": 0.3368,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.702,
+        "mae_above_theta_meV_per_A": 194.1,
+        "mae_below_theta_meV_per_A": 1807.7,
+        "within_tolerance_fraction": 0.41
+      }
+    },
+    {
+      "model_key": "mace-mp-0-medium",
+      "model_name": "MACE-MP-0 medium",
+      "training_corpus": "MPtrj",
+      "indexes": [
+        "mptrj"
+      ],
+      "theta_f": 0.3446,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.702,
+        "mae_above_theta_meV_per_A": 177.6,
+        "mae_below_theta_meV_per_A": 1753.9,
+        "within_tolerance_fraction": 0.446
+      }
+    },
+    {
+      "model_key": "mace-mp-0-small",
+      "model_name": "MACE-MP-0 small",
+      "training_corpus": "MPtrj",
+      "indexes": [
+        "mptrj"
+      ],
+      "theta_f": 0.3253,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.699,
+        "mae_above_theta_meV_per_A": 179.5,
+        "mae_below_theta_meV_per_A": 1680.3,
+        "within_tolerance_fraction": 0.42
+      }
+    },
+    {
+      "model_key": "mace-mp-0b2-medium",
+      "model_name": "MACE-MP-0b2 medium",
+      "training_corpus": "MPtrj",
+      "indexes": [
+        "mptrj"
+      ],
+      "theta_f": 0.4195,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.737,
+        "mae_above_theta_meV_per_A": 141.3,
+        "mae_below_theta_meV_per_A": 1191.2,
+        "within_tolerance_fraction": 0.474
+      }
+    },
+    {
+      "model_key": "mace-mp-0b3-medium",
+      "model_name": "MACE-MP-0b3 medium",
+      "training_corpus": "MPtrj",
+      "indexes": [
+        "mptrj"
+      ],
+      "theta_f": 0.2208,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.644,
+        "mae_above_theta_meV_per_A": 164.7,
+        "mae_below_theta_meV_per_A": 1330.9,
+        "within_tolerance_fraction": 0.458
+      }
+    },
+    {
+      "model_key": "mace-mpa-0",
+      "model_name": "MACE-MPA-0",
+      "training_corpus": "MPtrj + sAlex",
+      "indexes": [
+        "mptrj",
+        "alexandria"
+      ],
+      "theta_f": 0.2204,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.583,
+        "mae_above_theta_meV_per_A": 134.2,
+        "mae_below_theta_meV_per_A": 727.5,
+        "within_tolerance_fraction": 0.635
+      }
+    },
+    {
+      "model_key": "mattersim-v1",
+      "model_name": "MatterSim-v1",
+      "training_corpus": "MPtrj + Alex + OMat24",
+      "indexes": [
+        "mptrj",
+        "alexandria",
+        "omat24"
+      ],
+      "theta_f": 0.3968,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.577,
+        "mae_above_theta_meV_per_A": 171.4,
+        "mae_below_theta_meV_per_A": 459.7,
+        "within_tolerance_fraction": 0.785
+      }
+    },
+    {
+      "model_key": "orb-v2",
+      "model_name": "ORB v2 MPA",
+      "training_corpus": "MPtrj + Alex",
+      "indexes": [
+        "mptrj",
+        "alexandria"
+      ],
+      "theta_f": 0.2216,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.583,
+        "mae_above_theta_meV_per_A": 114.6,
+        "mae_below_theta_meV_per_A": 586.0,
+        "within_tolerance_fraction": 0.708
+      }
+    },
+    {
+      "model_key": "orb-v2-mptrj",
+      "model_name": "ORB v2 MPtrj",
+      "training_corpus": "MPtrj",
+      "indexes": [
+        "mptrj"
+      ],
+      "theta_f": 0.0894,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.551,
+        "mae_above_theta_meV_per_A": 153.9,
+        "mae_below_theta_meV_per_A": 769.9,
+        "within_tolerance_fraction": 0.59
+      }
+    },
+    {
+      "model_key": "orb-v3",
+      "model_name": "ORB v3",
+      "training_corpus": "MPtrj + Alex + OMat24",
+      "indexes": [
+        "mptrj",
+        "alexandria",
+        "omat24"
+      ],
+      "theta_f": 0.114,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.394,
+        "mae_above_theta_meV_per_A": 151.4,
+        "mae_below_theta_meV_per_A": 469.5,
+        "within_tolerance_fraction": 0.862
+      }
+    },
+    {
+      "model_key": "sevennet-0",
+      "model_name": "SevenNet-0",
+      "training_corpus": "MPtrj",
+      "indexes": [
+        "mptrj"
+      ],
+      "theta_f": 0.3397,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.702,
+        "mae_above_theta_meV_per_A": 144.0,
+        "mae_below_theta_meV_per_A": 1768.8,
+        "within_tolerance_fraction": 0.455
+      }
+    },
+    {
+      "model_key": "sevennet-l3i5",
+      "model_name": "SevenNet-l3i5",
+      "training_corpus": "MPtrj",
+      "indexes": [
+        "mptrj"
+      ],
+      "theta_f": 0.2248,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.651,
+        "mae_above_theta_meV_per_A": 152.4,
+        "mae_below_theta_meV_per_A": 1490.2,
+        "within_tolerance_fraction": 0.487
+      }
+    },
+    {
+      "model_key": "sevennet-mf-ompa",
+      "model_name": "SevenNet-MF-ompa",
+      "training_corpus": "MPtrj + OMat24 + sAlex",
+      "indexes": [
+        "mptrj",
+        "alexandria",
+        "omat24"
+      ],
+      "theta_f": 0.0849,
+      "eps_f_eV_per_A": 0.5,
+      "alpha": 0.1,
+      "held_out": {
+        "n": 312,
+        "flagged_fraction": 0.365,
+        "mae_above_theta_meV_per_A": 149.4,
+        "mae_below_theta_meV_per_A": 421.6,
+        "within_tolerance_fraction": 0.878
+      }
+    }
+  ]
+}
