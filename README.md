@@ -184,6 +184,13 @@ write elsewhere.
 | per-mode ordering and within-tolerance shares (SI Note 8) | `examples/reproduce/ood_mode_analysis.py` |
 | the candidate list (SI Tables 8/9) | `examples/cathode/voltage_roster.py`, `tables8.py` |
 
+## Withheld data
+
+The structure files used for calibration and evaluation are not released, to prevent a model
+being trained specifically to pass them. `withheld/CHECKSUMS.json` carries the SHA-256 digest
+of each one, and `withheld/README.md` explains what is released instead (the corpus half of
+the calibration set is regenerable exactly, and the construction recipe is in the paper).
+
 `examples/reproduce/theta_transfer.py` reproduces the calibration-mixture experiment, which is
 not part of the paper: admitting the randomly generated cells to the calibration set is reported
 there as a failure mode rather than as a result, and the script is kept for that reason.

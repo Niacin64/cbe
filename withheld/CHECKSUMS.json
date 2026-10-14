@@ -1,0 +1,42 @@
+{
+  "note": "SHA-256 of the structure files used for calibration and evaluation in the paper. The files themselves are withheld: the extrapolation block and the test set are the objects a coverage score is measured against, and publishing them would let a model be trained specifically to pass them. These digests let a later disclosure be verified against the published paper.",
+  "paper": "Coverage-based extrapolation warnings for universal machine-learned interatomic potentials",
+  "algorithm": "sha256",
+  "sets": {
+    "calib-corpus": {
+      "file": "refs_calib.xyz",
+      "n_structures": 540,
+      "bytes": 667004,
+      "sha256": "db89d9352e0fb9daa2c1d1dbae002a72e1e23188b012d2a83cf106ec01afccc6",
+      "description": "300 MPtrj + 240 Alexandria calibration structures"
+    },
+    "extrapolation-block": {
+      "file": "refs_new_ood_clean.xyz",
+      "n_structures": 768,
+      "bytes": 986298,
+      "sha256": "4879e880f90f46af51383c4fbb4804eb3e6b013600da891daa99df018234c964",
+      "description": "controlled-extrapolation block, ten deformation modes"
+    },
+    "test-a": {
+      "file": "refs_full.xyz",
+      "n_structures": 439,
+      "bytes": 531277,
+      "sha256": "b0c83f646ebb8d5482295bb09775ba296b101e04648481ef4d79350166679222",
+      "description": "part a of the 836-configuration test set"
+    },
+    "test-b": {
+      "file": "refs_ood.xyz",
+      "n_structures": 397,
+      "bytes": 756764,
+      "sha256": "4682967fda58b3a2ea9d92fcb5f3d4e05db67ae0ca2b3be8c2f72394862e98cd",
+      "description": "part b of the 836-configuration test set"
+    },
+    "cathodes": {
+      "file": "candidates.xyz",
+      "n_structures": 75,
+      "bytes": 146031,
+      "sha256": "57a80af0db9d1cc35cd07816d14c59720e4f5d49bcb845b485fde90b787267c5",
+      "description": "relaxed Li-TM-O cathode candidates"
+    }
+  }
+}
