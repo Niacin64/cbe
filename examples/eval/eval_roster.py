@@ -3,7 +3,6 @@
 
 Roster (keys match matbench-discovery's model_key; corpora taken from its models/*.yml):
   MACE family / CHGNet / AlphaNet -> grace environment
-  SevenNet / ORB / MatterSim / GRACE(OAM) -> mlip7 environment
 
 Usage:
   # test set (623 structures after physical filtering)
@@ -38,12 +37,13 @@ ROSTER = {
     "grace-2l-mptrj":    ("GRACE-2L-MPtrj",    "MPtrj", "grace-local", "MP_GRACE_2L_r6_11Nov2024"),
     "alphanet-v1-mptrj": ("AlphaNet-v1-MPtrj", "MPtrj", "alphanet", "alphanet-mptrj.model"),
     "esen-30m-mp":       ("eSEN-30M-MP",       "MPtrj", "esen", "esen_30m_mp"),
+    # Models trained on a private corpus are not listed: none of the three public indexes can
+    # be matched to them, so a coverage value would have no interpretation.
     # ---- MPtrj + Alexandria (sAlex / Alex / OAM) ----
     "mace-mpa-0":        ("MACE-MPA-0",        "MPtrj + sAlex", "mace", "medium-mpa-0"),
     "sevennet-mf-ompa":  ("SevenNet-MF-ompa",  "MPtrj + OMat24 + sAlex", "sevennet", ("7net-mf-ompa", "mpa")),
     "orb-v2":            ("ORB v2 MPA",        "MPtrj + Alex", "orb", "orb_v2"),
     "orb-v3":            ("ORB v3",            "MPtrj + Alex + OMat24", "orb", "orb_v3_conservative_20_mpa"),
-    "mattersim-v1":      ("MatterSim-v1",      "MPtrj + Alex + OMat24", "mattersim", None),
     "grace-1l-oam":      ("GRACE-1L-OAM",      "MPtrj + OMat24 + sAlex", "grace", "GRACE-1L-OAM"),
     "grace-2l-oam":      ("GRACE-2L-OAM",      "MPtrj + OMat24 + sAlex", "grace", "GRACE-2L-OAM"),
     "grace-fs-oam":      ("GRACE-FS-OAM",      "MPtrj + OMat24 + sAlex", "grace", "GRACE-FS-OAM"),
@@ -77,10 +77,6 @@ def load_model(key, device="cpu"):
         from orb_models.forcefield import pretrained
         from orb_models.forcefield.calculator import ORBCalculator
         return ORBCalculator(model=getattr(pretrained, arg)(device=device), device=device)
-    if backend == "mattersim":
-        from mattersim.forcefield import MatterSimCalculator
-        ck = ROOT / ".cache/mattersim/mattersim-v1.0.0-1M.pth"
-        return MatterSimCalculator(device=device, load_path=str(ck))
     if backend == "grace":
         from tensorpotential.calculator import grace_fm
         return grace_fm(arg)

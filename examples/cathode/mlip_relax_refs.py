@@ -47,8 +47,7 @@ def load_models(device):
     for label, loader in [
             ("SevenNet-0", lambda: __import__("sevenn.sevennet_calculator",
              fromlist=["SevenNetCalculator"]).SevenNetCalculator(model="7net-0", device=device)),
-            ("ORB-v2", lambda: _load_orb(device)),
-            ("MatterSim-v1", lambda: _load_mattersim(device))]:
+            ("ORB-v2", lambda: _load_orb(device))]:
         try:
             models[label] = loader()
         except Exception as e:
@@ -60,12 +59,6 @@ def _load_orb(device):
     from orb_models.forcefield import pretrained
     from orb_models.forcefield.calculator import ORBCalculator
     return ORBCalculator(model=pretrained.orb_v2(device=device), device=device)
-
-
-def _load_mattersim(device):
-    from mattersim.forcefield import MatterSimCalculator
-    ckpt = ".cache/mattersim/mattersim-v1.0.0-1M.pth"
-    return MatterSimCalculator(device=device, load_path=ckpt)
 
 
 def relax(calc, atoms, full=True, fmax=0.05, steps=200):

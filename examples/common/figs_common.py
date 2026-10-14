@@ -6,15 +6,19 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 
 # The 8 representative models: (key, display name, corpus group)
+# The eight panels shown in the main-text figures. Chosen so that every training-corpus group is
+# represented (MPtrj, MPtrj+Alexandria, MPtrj+Alexandria+OMat24) and so that both extremes of the
+# threshold appear: GRACE-FS-OAM at the top of the roster and ORB v3 at the bottom. The same eight
+# are used for the force/error panels and for the cathode panels, so the two can be read side by side.
 MODELS8 = [
     ("mace-mp-0-medium", "MACE-MP-0 medium", "MPtrj"),
-    ("sevennet-0",       "SevenNet-0",       "MPtrj"),
+    ("grace-2l-mptrj",   "GRACE-2L-MPtrj",   "MPtrj"),
     ("orb-v2-mptrj",     "ORB v2 MPtrj",     "MPtrj"),
     ("mace-mpa-0",       "MACE-MPA-0",       "MPtrj + Alexandria"),
     ("orb-v2",           "ORB v2 MPA",       "MPtrj + Alexandria"),
+    ("grace-fs-oam",     "GRACE-FS-OAM",     "MPtrj + Alexandria + OMat24"),
     ("sevennet-mf-ompa", "SevenNet-MF-ompa", "MPtrj + Alexandria + OMat24"),
-    ("mattersim-v1",     "MatterSim-v1",     "MPtrj + Alexandria + OMat24"),
-    ("grace-2l-oam",     "GRACE-2L-OAM",     "MPtrj + Alexandria + OMat24"),
+    ("orb-v3",           "ORB v3",           "MPtrj + Alexandria + OMat24"),
 ]
 
 GROUP_ORDER = ["MPtrj", "MPtrj + Alexandria", "MPtrj + Alexandria + OMat24"]
@@ -30,7 +34,14 @@ GCOLORS = {"in-dist": "#1a4d8f", "perturbed": "#e08a00", "random": "#2e7d32"}
 
 
 def corpus_group(corpus: str) -> str:
-    """Map matbench's fine-grained corpus names onto the three groups."""
+    """Map matbench's fine-grained corpus names onto the three groups.
+
+    Models trained on a private corpus are not in the roster, since no index can be matched to
+    them; if such a name is passed anyway it falls back to the MPtrj group so that no empty
+    category can appear in a legend.
+    """
+    if corpus in ("own", "private") or "own" in corpus.lower() or "priv" in corpus.lower():
+        return "MPtrj"
     if corpus == "MPtrj":
         return "MPtrj"
     if "OMat" in corpus:

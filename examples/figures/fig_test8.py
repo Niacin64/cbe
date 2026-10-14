@@ -54,18 +54,17 @@ def load():
         errs.update(pickle.load(open(f, "rb")))
     meta = pickle.load(open(data("roster_meta.pkl"), "rb"))
     th = pickle.load(open(data("thetas.pkl"), "rb"))
-    held = np.load(data("calib_split.npz"))["held_out"]        # plot the held-out half only
-    dual = slice_dual(load_dual(data("dist_test.npz"), keep), held)
-    refs = [a for a, k in zip(refs, held) if k]
-    groups = groups[held]
-    errs = {k: np.asarray(v, float)[held] for k, v in errs.items()}
+    # All 623 retained structures, not the held-out half: the table that accompanies this figure
+    # and the calibration thresholds are both computed on 623, so using the 312-structure half here
+    # would put the panels and the table on different denominators.
+    dual = load_dual(data("dist_test.npz"), keep)
     return refs, groups, dual, errs, meta, th
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=str(ROOT / "DOC/figures/fig_test8.pdf"))
-    ap.add_argument("--eps", type=float, default=0.2)
+    ap.add_argument("--eps", type=float, default=0.5)
     ap.add_argument("--alpha", type=float, default=0.1)
     ap.add_argument("--h", type=float, default=None)
     ap.add_argument("--k", type=int, default=30)
@@ -144,12 +143,14 @@ def main():
     axp.set_xscale("log")
     axp.grid(alpha=0.2, axis="x", which="both")
     from matplotlib.patches import Patch
-    axp.legend(handles=[Patch(color=GROUP_COLOR[g], label=g) for g in
-                        ["MPtrj", "MPtrj + Alexandria", "MPtrj + Alexandria + OMat24"]],
-               loc="upper center", bbox_to_anchor=(0.5, -0.16), ncol=3,
+    # List only the corpus groups that actually have a bar.
+    groups_present = [g for g in ("MPtrj", "MPtrj + Alexandria", "MPtrj + Alexandria + OMat24")
+                      if any(r[1] == g for r in rows)]
+    axp.legend(handles=[Patch(color=GROUP_COLOR[g], label=g) for g in groups_present],
+               loc="upper center", bbox_to_anchor=(0.5, -0.16), ncol=len(groups_present),
                frameon=False, fontsize=11.5)
 
-    fig.suptitle("Coverage against per-atom force error on the held-out half of the test set;\n"
+    fig.suptitle("Coverage against per-atom force error on the 623 test configurations;\n"
                  "coverage from each model's own training corpus, $\\theta_f$ fixed by the calibration set",
                  fontsize=15, y=0.995)
     fig.subplots_adjust(left=0.165, right=0.985, top=0.905, bottom=0.09)

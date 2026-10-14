@@ -156,7 +156,7 @@ python examples/index/verify_index.py --index ~/cbe_data/mptrj
 |---|---|---|---|
 | MPtrj | 49,295,660 | 2.94 GiB (1 file) | MACE-MP-0, CHGNet, SevenNet-0, GRACE-2L-MPtrj, ORB-v2 |
 | Alexandria | 158,597,532 | 9.44 GiB (4 shards) | MACE-MPA-0, ORB-v2-MPA |
-| OMat24 | 86,066,902 | 5.12 GiB (5 shards) | GRACE-OAM, ORB-v3, MatterSim-v1, SevenNet-MF-ompa |
+| OMat24 | 86,066,902 | 5.12 GiB (5 shards) | GRACE-OAM, ORB-v3, SevenNet-MF-ompa |
 
 You only need the corpus your model was trained on. The binaries live on Hugging Face
 (`$HF_REPO`, default in the download script) and are archived with a DOI on Zenodo; the
@@ -180,9 +180,13 @@ write elsewhere.
 | Table 3 per-model cathode performance | `examples/figures/tables8.py` |
 | Table 4 candidates matching known chemistries | `examples/cathode/voltage_roster.py` |
 | Table 5 voltage tolerance decision | `examples/reproduce/voltage_triage.py` |
-| calibration-mixture experiment | `examples/reproduce/theta_transfer.py` |
 | ensemble comparison | `examples/reproduce/ensemble_baseline.py` + `ensemble_baseline_analysis.py` |
-| the candidate list (SI Table 5/6) | `examples/cathode/voltage_roster.py`, `tables8.py` |
+| per-mode ordering and within-tolerance shares (SI Note 8) | `examples/reproduce/ood_mode_analysis.py` |
+| the candidate list (SI Tables 8/9) | `examples/cathode/voltage_roster.py`, `tables8.py` |
+
+`examples/reproduce/theta_transfer.py` reproduces the calibration-mixture experiment, which is
+not part of the paper: admitting the randomly generated cells to the calibration set is reported
+there as a failure mode rather than as a result, and the script is kept for that reason.
 
 Typical flow: build an index (`index/`), evaluate a roster (`eval/`), calibrate
 (`calibration/`), then plot or tabulate (`figures/`).

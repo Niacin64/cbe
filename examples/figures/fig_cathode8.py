@@ -45,7 +45,7 @@ ELEMS = ["Li", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Zr", "Nb",
          "Mo", "Ru", "Rh", "Pd", "Ag", "Cd", "Hf", "Ta", "W", "Re", "Os", "Ir",
          "Pt", "Au", "O", "P"]
 N_LI = {"layered": 3, "spinel": 2, "olivine": 4}
-LEGACY = {"MatterSim-v1": "mattersim-v1", "SevenNet-0": "sevennet-0", "ORB-v2": "orb-v2"}
+LEGACY = {"SevenNet-0": "sevennet-0", "ORB-v2": "orb-v2"}  # legacy pickle keys -> roster keys
 
 
 def load_cathode():
